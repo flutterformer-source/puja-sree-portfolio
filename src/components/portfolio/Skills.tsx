@@ -15,14 +15,62 @@ import {
 import Link from 'next/link';
 
 const SKILLS = [
-  { id: 'orthopedic-rehabilitation', name: 'Orthopedic Rehabilitation', icon: <Hammer className="w-6 h-6 text-primary" />, level: 'Expert' },
-  { id: 'neurological-rehabilitation', name: 'Neurological Rehabilitation', icon: <Brain className="w-6 h-6 text-primary" />, level: 'Advanced' },
-  { id: 'cardio-pulmonary-therapy', name: 'Cardio-Pulmonary Therapy', icon: <HeartPulse className="w-6 h-6 text-primary" />, level: 'Specialist' },
-  { id: 'sports-injury-rehabilitation', name: 'Sports Injury Rehabilitation', icon: <Zap className="w-6 h-6 text-primary" />, level: 'Specialist' },
-  { id: 'occupational-therapy', name: 'Occupational Therapy', icon: <UserRoundCheck className="w-6 h-6 text-primary" />, level: 'Expert' },
-  { id: 'functional-independence', name: 'Functional Independence', icon: <Stethoscope className="w-6 h-6 text-primary" />, level: 'Practitioner' },
-  { id: 'pain-management', name: 'Pain Management', icon: <Activity className="w-6 h-6 text-primary" />, level: 'Senior' },
-  { id: 'post-surgical-rehab', name: 'Post-Surgical Rehab', icon: <ShieldCheck className="w-6 h-6 text-primary" />, level: 'Expert' },
+  { 
+    id: 'orthopedic-rehabilitation', 
+    name: 'Orthopedic Rehabilitation', 
+    icon: <Hammer className="w-6 h-6 text-primary" />, 
+    level: 'Expert',
+    image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=600&q=80'
+  },
+  { 
+    id: 'neurological-rehabilitation', 
+    name: 'Neurological Rehabilitation', 
+    icon: <Brain className="w-6 h-6 text-primary" />, 
+    level: 'Advanced',
+    image: 'https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=600&q=80'
+  },
+  { 
+    id: 'cardio-pulmonary-therapy', 
+    name: 'Cardio-Pulmonary Therapy', 
+    icon: <HeartPulse className="w-6 h-6 text-primary" />, 
+    level: 'Specialist',
+    image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=600&q=80'
+  },
+  { 
+    id: 'sports-injury-rehabilitation', 
+    name: 'Sports Injury Rehabilitation', 
+    icon: <Zap className="w-6 h-6 text-primary" />, 
+    level: 'Specialist',
+    image: 'https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&w=600&q=80'
+  },
+  { 
+    id: 'occupational-therapy', 
+    name: 'Occupational Therapy', 
+    icon: <UserRoundCheck className="w-6 h-6 text-primary" />, 
+    level: 'Expert',
+    image: 'https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=600&q=80'
+  },
+  { 
+    id: 'functional-independence', 
+    name: 'Functional Independence', 
+    icon: <Stethoscope className="w-6 h-6 text-primary" />, 
+    level: 'Practitioner',
+    image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=600&q=80'
+  },
+  { 
+    id: 'pain-management', 
+    name: 'Pain Management', 
+    icon: <Activity className="w-6 h-6 text-primary" />, 
+    level: 'Senior',
+    image: 'https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&w=600&q=80'
+  },
+  { 
+    id: 'post-surgical-rehab', 
+    name: 'Post-Surgical Rehab', 
+    icon: <ShieldCheck className="w-6 h-6 text-primary" />, 
+    level: 'Expert',
+    image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=600&q=80'
+  },
 ];
 
 const Skills = () => {
@@ -74,7 +122,13 @@ const Skills = () => {
                 }}
                 className="p-10 glass-card rounded-[2.5rem] flex flex-col items-center text-center relative overflow-hidden h-full cursor-pointer transition-all duration-300 group-hover:bg-white/10 group-hover:border-primary/40"
               >
+                <div className="absolute inset-0 z-0">
+                  <img src={skill.image} alt={skill.name} className="w-full h-full object-cover opacity-10 group-hover:opacity-20 transition-opacity duration-500" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent" />
+                </div>
+                
                 <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-3xl -mr-16 -mt-16 group-hover:bg-primary/20 transition-colors duration-500" />
+
                 
                 <div className="p-5 bg-primary/10 rounded-2xl mb-8 group-hover:scale-110 group-hover:bg-primary/30 transition-all duration-500 shadow-primary/10 relative z-10">
                   {skill.icon}

@@ -51,12 +51,15 @@ export const metadata: Metadata = {
   },
 };
 
+const isProd = process.env.NODE_ENV === 'production';
+const basePath = isProd ? '/puja-sree-portfolio' : '';
+
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Physician',
   'name': 'Dr. Puja Sree',
   'description': 'Physiotherapist and Occupational Therapist specializing in neurological and orthopedic rehabilitation.',
-  'image': 'https://pujasree.com/dr-puja-sri.jpg',
+  'image': `https://pujasree.com${basePath}/dr-puja-sri.jpg`,
   'medicalSpecialty': [
     'Physiotherapy',
     'Occupational Therapy',

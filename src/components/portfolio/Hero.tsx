@@ -2,29 +2,16 @@
 
 import { useEffect, useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import gsap from 'gsap';
 import { Sparkles, Calendar, Hospital, ShieldCheck, ArrowRight } from 'lucide-react';
-
 
 const Hero = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollY } = useScroll();
   const y1 = useTransform(scrollY, [0, 500], [0, 200]);
-  const opacity = useTransform(scrollY, [0, 300], [1, 0]);
+  const opacity = useTransform(scrollY, [0, 800], [1, 0]);
 
   useEffect(() => {
-    const ctx = gsap.context(() => {
-      const tl = gsap.timeline({ defaults: { ease: 'power4.out', duration: 1.2 } });
-
-      tl.from('.hero-badge', { y: 20, opacity: 0, delay: 0.2 })
-        .from('.hero-title-line', { y: 100, opacity: 0, stagger: 0.1 }, '-=0.8')
-        .from('.hero-tagline', { y: 20, opacity: 0 }, '-=0.8')
-        .from('.hero-p', { y: 20, opacity: 0 }, '-=0.8')
-        .from('.hero-highlights', { y: 20, opacity: 0, stagger: 0.1 }, '-=0.8')
-        .from('.hero-btns', { y: 20, opacity: 0 }, '-=0.8');
-    }, containerRef);
-
-    return () => ctx.revert();
+    // Basic GSAP entrance animations if needed
   }, []);
 
   const highlights = [
@@ -42,7 +29,8 @@ const Hero = () => {
     >
       <motion.div style={{ y: y1, opacity }} className="container mx-auto px-6 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-          {/* Left Column: Text Content */}
+          
+          {/* Left Column: Text Content (Natural Order: Top on mobile) */}
           <div className="text-left">
             {/* Badge */}
             <div className="hero-badge inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-8">
@@ -77,12 +65,12 @@ const Hero = () => {
               A dedicated healthcare professional with <span className="text-foreground font-medium">2+ years of experience</span> in physiotherapy and occupational therapy. Passionate about improving patients’ quality of life through personalized treatment and compassionate care.
             </p>
 
-            {/* Highlights (Compact for split layout) */}
+            {/* Highlights */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
               {highlights.map((item, i) => (
                 <div key={i} className="hero-highlights flex items-center gap-3 p-4 glass-card rounded-2xl">
                   <div className="text-primary">{item.icon}</div>
-                  <span className="text-xs font-bold uppercase tracking-wider">{item.text}</span>
+                  <span className="text-xs font-bold uppercase tracking-wider text-muted-foreground">{item.text}</span>
                 </div>
               ))}
             </div>
@@ -112,7 +100,7 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* Right Column: Imagery */}
+          {/* Right Column: Imagery (Natural Order: Bottom on mobile) */}
           <motion.div 
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -122,10 +110,10 @@ const Hero = () => {
             {/* Ambient Background Glow */}
             <div className="absolute -inset-4 bg-primary/20 rounded-full blur-3xl opacity-30 animate-pulse" />
             
-            <div className="relative glass-card p-4 rounded-[4rem] overflow-hidden group">
+            <div className="relative glass-card p-4 rounded-[4rem] overflow-hidden group mx-auto max-w-[500px] lg:max-w-none">
               <div className="relative aspect-[4/5] rounded-[3.5rem] overflow-hidden">
                 <img 
-                  src="./dr-puja-sri.jpg" 
+                  src={`${process.env.NODE_ENV === 'production' ? '/puja-sree-portfolio' : ''}/dr-puja-sri.jpg`}
                   alt="Dr. Puja Sri" 
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
@@ -141,6 +129,7 @@ const Hero = () => {
               </div>
             </div>
           </motion.div>
+
         </div>
       </motion.div>
 
