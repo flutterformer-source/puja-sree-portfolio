@@ -126,7 +126,7 @@ const Hero = () => {
             <div className="relative glass-card p-4 rounded-[4rem] overflow-hidden group">
               <div className="relative aspect-[4/5] rounded-[3.5rem] overflow-hidden">
                 <img 
-                  src="/dr-puja-sri.jpg" 
+                  src="./dr-puja-sri.jpg" 
                   alt="Dr. Puja Sri" 
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
