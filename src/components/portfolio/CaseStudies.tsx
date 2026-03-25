@@ -9,9 +9,11 @@ import {
   CheckCircle2,
   ArrowUpRight
 } from 'lucide-react';
+import Link from 'next/link';
 
 const CASES = [
   {
+    id: 'orthopedic-rehab',
     title: 'Orthopedic Rehabilitation',
     subtitle: 'Post-Surgical Recovery',
     icon: <Dna className="w-8 h-8 text-primary" />,
@@ -19,6 +21,7 @@ const CASES = [
     tags: ['Joint Replacement', 'Mobility', 'Pain Management']
   },
   {
+    id: 'neurological-rehab',
     title: 'Neurological Rehabilitation',
     subtitle: 'Stroke & Motor Function',
     icon: <Brain className="w-8 h-8 text-primary" />,
@@ -26,6 +29,7 @@ const CASES = [
     tags: ['Stroke Recovery', 'Motor Function', 'Coordination']
   },
   {
+    id: 'cardio-pulmonary-care',
     title: 'Cardio-Pulmonary Care',
     subtitle: 'Endurance & Capacity',
     icon: <Wind className="w-8 h-8 text-primary" />,
@@ -33,6 +37,7 @@ const CASES = [
     tags: ['Breathing Exercises', 'Endurance', 'Lung Capacity']
   },
   {
+    id: 'sports-injury-recovery',
     title: 'Sports Injury Recovery',
     subtitle: 'Return to Activity',
     icon: <Trophy className="w-8 h-8 text-primary" />,
@@ -79,39 +84,43 @@ const CaseStudies = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {CASES.map((item, index) => (
-            <motion.div
-              key={item.title}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              viewport={{ once: true }}
-              whileHover={{ y: -10 }}
-              className="group glass-card p-10 md:p-12 rounded-[3rem] relative overflow-hidden"
+            <Link
+              key={item.id}
+              href={`/cases/${item.id}`}
             >
-               <div className="absolute top-0 right-0 p-8 opacity-0 group-hover:opacity-100 transition-opacity">
-                 <ArrowUpRight className="w-8 h-8 text-primary/50" />
-               </div>
-               
-               <div className="mb-8 p-4 bg-primary/10 rounded-2xl w-fit group-hover:bg-primary/20 transition-colors">
-                 {item.icon}
-               </div>
-               
-               <div className="mb-6">
-                 <p className="text-xs font-bold text-primary uppercase tracking-[0.2em] mb-2">{item.subtitle}</p>
-                 <h3 className="text-3xl font-bold tracking-tight mb-4">{item.title}</h3>
-                 <p className="text-muted-foreground text-lg leading-relaxed font-light">
-                   {item.description}
-                 </p>
-               </div>
-               
-               <div className="flex flex-wrap gap-2">
-                 {item.tags.map((tag) => (
-                   <span key={tag} className="px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-[10px] font-bold uppercase tracking-wider text-foreground/70">
-                     {tag}
-                   </span>
-                 ))}
-               </div>
-            </motion.div>
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                whileHover={{ y: -10 }}
+                className="group glass-card p-10 md:p-12 rounded-[3rem] relative overflow-hidden h-full cursor-pointer"
+              >
+                 <div className="absolute top-0 right-0 p-8 opacity-0 group-hover:opacity-100 transition-opacity">
+                   <ArrowUpRight className="w-8 h-8 text-primary/50" />
+                 </div>
+                 
+                 <div className="mb-8 p-4 bg-primary/10 rounded-2xl w-fit group-hover:bg-primary/20 transition-colors">
+                   {item.icon}
+                 </div>
+                 
+                 <div className="mb-6">
+                   <p className="text-xs font-bold text-primary uppercase tracking-[0.2em] mb-2">{item.subtitle}</p>
+                   <h3 className="text-3xl font-bold tracking-tight mb-4">{item.title}</h3>
+                   <p className="text-muted-foreground text-lg leading-relaxed font-light line-clamp-3">
+                     {item.description}
+                   </p>
+                 </div>
+                 
+                 <div className="flex flex-wrap gap-2">
+                   {item.tags.map((tag) => (
+                     <span key={tag} className="px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-[10px] font-bold uppercase tracking-wider text-foreground/70">
+                       {tag}
+                     </span>
+                   ))}
+                 </div>
+              </motion.div>
+            </Link>
           ))}
         </div>
       </div>
