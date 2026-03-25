@@ -11,7 +11,7 @@ import NavLinks, { NAV_ITEMS } from './NavLinks';
 import MobileMenu from './MobileMenu';
 import { useScrollDirection } from '@/hooks/useScrollDirection';
 import { useActiveSection } from '@/hooks/useActiveSection';
-import Translator from '@/components/portfolio/Translator';
+
 
 if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger);
@@ -93,7 +93,7 @@ const Navbar = () => {
 
           {/* Right Section: CTA & Hamburger */}
           <div className="flex items-center gap-4">
-            <Translator />
+
 
             <Link
               href="https://www.linkedin.com/in/dr-gudavalli-puja-sri-560785247/"

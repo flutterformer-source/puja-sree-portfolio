@@ -33,10 +33,9 @@ const ParticleNetwork = () => {
     window.addEventListener('mouseout', handleMouseLeave);
 
     const resize = () => {
-      const parent = canvas.parentElement;
-      if (parent) {
-        canvas.width = parent.clientWidth;
-        canvas.height = parent.clientHeight;
+      if (canvas) {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
         initParticles();
       }
     };
@@ -154,8 +153,8 @@ const ParticleNetwork = () => {
   return (
     <canvas 
       ref={canvasRef} 
-      className="absolute inset-0 pointer-events-none z-0"
-      style={{ opacity: 0.8 }}
+      className="fixed top-0 left-0 w-full h-full pointer-events-none"
+      style={{ opacity: 0.8, zIndex: 0 }}
     />
   );
 };

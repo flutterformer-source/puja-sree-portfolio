@@ -4,7 +4,7 @@ import { useEffect, useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import gsap from 'gsap';
 import { Sparkles, Calendar, Hospital, ShieldCheck, ArrowRight } from 'lucide-react';
-import ParticleNetwork from './ParticleNetwork';
+
 
 const Hero = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -40,7 +40,6 @@ const Hero = () => {
       id="home" 
       className="relative min-h-screen flex items-center justify-center pt-24 pb-12 overflow-hidden"
     >
-      <ParticleNetwork />
       <motion.div style={{ y: y1, opacity }} className="container mx-auto px-6 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Left Column: Text Content */}
