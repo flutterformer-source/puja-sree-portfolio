@@ -6,13 +6,6 @@ import { Sparkles, Calendar, Hospital, ShieldCheck, ArrowRight } from 'lucide-re
 
 const Hero = () => {
   const containerRef = useRef<HTMLDivElement>(null);
-  const { scrollY } = useScroll();
-  const y1 = useTransform(scrollY, [0, 500], [0, 200]);
-  const opacity = useTransform(scrollY, [0, 800], [1, 0]);
-
-  useEffect(() => {
-    // Basic GSAP entrance animations if needed
-  }, []);
 
   const highlights = [
     { icon: <Calendar className="w-4 h-4" />, text: '2+ Years Clinical Experience' },
@@ -27,7 +20,7 @@ const Hero = () => {
       id="home" 
       className="relative min-h-screen flex items-center justify-center pt-24 pb-12 overflow-hidden"
     >
-      <motion.div style={{ y: y1, opacity }} className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-6 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           
           {/* Left Column: Text Content (Natural Order: Top on mobile) */}
@@ -131,7 +124,7 @@ const Hero = () => {
           </motion.div>
 
         </div>
-      </motion.div>
+      </div>
 
       {/* Luxury Background Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/10 rounded-full blur-[120px] pointer-events-none" />
