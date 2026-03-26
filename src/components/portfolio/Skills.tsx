@@ -14,62 +14,64 @@ import {
 
 import Link from 'next/link';
 
+const basePath = process.env.NODE_ENV === 'production' ? '/puja-sree-portfolio' : '';
+
 const SKILLS = [
   { 
     id: 'orthopedic-rehabilitation', 
     name: 'Orthopedic Rehabilitation', 
     icon: <Hammer className="w-6 h-6 text-primary" />, 
     level: 'Expert',
-    image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=600&q=80'
+    image: `${basePath}/images/expertise/orthopedic.png`
   },
   { 
     id: 'neurological-rehabilitation', 
     name: 'Neurological Rehabilitation', 
     icon: <Brain className="w-6 h-6 text-primary" />, 
     level: 'Advanced',
-    image: 'https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=600&q=80'
+    image: `${basePath}/images/expertise/neurological.png`
   },
   { 
     id: 'cardio-pulmonary-therapy', 
     name: 'Cardio-Pulmonary Therapy', 
     icon: <HeartPulse className="w-6 h-6 text-primary" />, 
     level: 'Specialist',
-    image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=600&q=80'
+    image: `${basePath}/images/expertise/cardio.png`
   },
   { 
     id: 'sports-injury-rehabilitation', 
     name: 'Sports Injury Rehabilitation', 
     icon: <Zap className="w-6 h-6 text-primary" />, 
     level: 'Specialist',
-    image: 'https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&w=600&q=80'
+    image: `${basePath}/images/expertise/sports.png`
   },
   { 
     id: 'occupational-therapy', 
     name: 'Occupational Therapy', 
     icon: <UserRoundCheck className="w-6 h-6 text-primary" />, 
     level: 'Expert',
-    image: 'https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=600&q=80'
+    image: `${basePath}/images/expertise/occupational.png`
   },
   { 
     id: 'functional-independence', 
     name: 'Functional Independence', 
     icon: <Stethoscope className="w-6 h-6 text-primary" />, 
     level: 'Practitioner',
-    image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=600&q=80'
+    image: `${basePath}/images/expertise/functional.png`
   },
   { 
     id: 'pain-management', 
     name: 'Pain Management', 
     icon: <Activity className="w-6 h-6 text-primary" />, 
     level: 'Senior',
-    image: 'https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&w=600&q=80'
+    image: `${basePath}/images/expertise/pain.png`
   },
   { 
     id: 'post-surgical-rehab', 
     name: 'Post-Surgical Rehab', 
     icon: <ShieldCheck className="w-6 h-6 text-primary" />, 
     level: 'Expert',
-    image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=600&q=80'
+    image: `${basePath}/images/expertise/surgical.png`
   },
 ];
 
